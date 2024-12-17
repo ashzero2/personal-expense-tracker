@@ -2,10 +2,10 @@
 	// @ts-nocheck
 	import AddExpense from '$lib/components/AddExpense.svelte';
 	import TimeLine from '$lib/components/TimeLine.svelte';
-	import { supabase } from '$lib/supabaseClient';
-	import { onMount } from 'svelte';
+	import { getContext, onMount } from 'svelte';
 
 	import Content from '$lib/components/Content.svelte';
+	import type { SupabaseClient } from '@supabase/supabase-js';
   let timelineData = [
     {
       title: "Svelte 5",
@@ -20,6 +20,8 @@
       content: Content,
     },
   ];
+	
+	const supabase: SupabaseClient = getContext('supabase')
 
 	let userExpense: number | undefined = $state(0);
 	async function updateExpense() {

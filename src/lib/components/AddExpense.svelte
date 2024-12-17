@@ -8,14 +8,16 @@
 		buttonVariants
 	} from '$lib/components/ui/EasyImport';
 
-	import { onMount } from 'svelte';
+	import { getContext, onMount } from 'svelte';
 	import { MediaQuery } from 'runed';
-	import { supabase } from '$lib/supabaseClient';
 	import CustomSelect from './CustomSelect.svelte';
 	import { type Category, type SelectData } from '$lib/types';
+	import type { SupabaseClient } from '@supabase/supabase-js';
 
 	let open = $state(false);
 	const isDesktop = new MediaQuery('(min-width: 768px)');
+
+	const supabase: SupabaseClient = getContext('supabase')
 
 	type PropData = {
 		updateExpense: () => void;
