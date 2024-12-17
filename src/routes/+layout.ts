@@ -1,4 +1,4 @@
-import { SUPABASE_URL, SUPABASE_KEY } from '$env/static/public'
+import { SUPABASE_URL, SUPABASE_KEY } from '$env/dynamic/public'
 import type { LayoutLoad } from './$types'
 import { createBrowserClient, createServerClient, isBrowser } from '@supabase/ssr'
 

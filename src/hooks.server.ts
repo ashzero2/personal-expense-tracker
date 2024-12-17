@@ -1,4 +1,4 @@
-import { SUPABASE_URL, SUPABASE_KEY } from '$env/static/private'
+import { SUPABASE_URL, SUPABASE_KEY } from '$env/dynamic/private'
 import { createServerClient } from '@supabase/ssr'
 import type { Handle } from '@sveltejs/kit'
 
