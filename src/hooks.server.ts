@@ -1,10 +1,10 @@
-import { env } from '$env/dynamic/private'
+import { env } from '$env/dynamic/public'
 import { createServerClient } from '@supabase/ssr'
 import type { Handle } from '@sveltejs/kit'
 
 export const handle: Handle = async ({ event, resolve }) => {
-	const supabaseUrl: string = env.SUPABASE_URL || '';
-	const supabaseKey: string = env.SUPABASE_KEY || '';
+	const supabaseUrl: string = env.PUBLIC_SUPABASE_URL || '';
+	const supabaseKey: string = env.PUBLIC_SUPABASE_KEY || '';
 
   event.locals.supabase = createServerClient(supabaseUrl, supabaseKey, {
     cookies: {

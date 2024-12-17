@@ -1,12 +1,12 @@
-import { env } from '$env/dynamic/private'
+import { env } from '$env/dynamic/public'
 import type { LayoutLoad } from './$types'
 import { createBrowserClient, createServerClient, isBrowser } from '@supabase/ssr'
 
 export const load: LayoutLoad = async ({ fetch, data, depends }) => {
   depends('supabase:auth')
 
-	const supabaseUrl: string = env.SUPABASE_URL || '';
-	const supabaseKey: string = env.SUPABASE_KEY || '';
+	const supabaseUrl: string = env.PUBLIC_SUPABASE_URL || '';
+	const supabaseKey: string = env.PUBLIC_SUPABASE_KEY || '';
 
   const supabase = isBrowser()
     ? createBrowserClient(supabaseUrl, supabaseKey, {
